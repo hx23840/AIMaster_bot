@@ -67,6 +67,7 @@ const de: PartialLocaleType = {
       All: "Alle Sprachen",
     },
     Avatar: "Avatar",
+    User: "Benutzer",
     FontSize: {
       Title: "Schriftgröße",
       SubTitle: "Schriftgröße des Chat-Inhalts anpassen",

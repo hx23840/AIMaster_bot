@@ -67,6 +67,7 @@ const es: PartialLocaleType = {
       All: "Todos los idiomas",
     },
     Avatar: "Avatar",
+    User: "Usuario",
     FontSize: {
       Title: "Tamaño de fuente",
       SubTitle: "Ajustar el tamaño de fuente del contenido del chat",

@@ -67,6 +67,7 @@ const cs: PartialLocaleType = {
       All: "Všechny jazyky",
     },
     Avatar: "Avatar",
+    User: "Uživatel",
     FontSize: {
       Title: "Velikost písma",
       SubTitle: "Nastavení velikosti písma obsahu chatu",

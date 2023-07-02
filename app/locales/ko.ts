@@ -67,6 +67,7 @@ const ko: PartialLocaleType = {
       All: "All Languages",
     },
     Avatar: "아바타",
+    User: "사용자",
     FontSize: {
       Title: "글꼴 크기",
       SubTitle: "채팅 내용의 글꼴 크기 조정",

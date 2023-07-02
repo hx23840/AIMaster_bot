@@ -68,6 +68,7 @@ const fr: PartialLocaleType = {
     },
 
     Avatar: "Avatar",
+    User: "Utilisateur",
     FontSize: {
       Title: "Taille des polices",
       SubTitle: "Ajuste la taille de police du contenu de la conversation",

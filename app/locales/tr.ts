@@ -67,6 +67,7 @@ const tr: PartialLocaleType = {
       All: "Tüm Diller",
     },
     Avatar: "Avatar",
+    User: "Kullanıcı",
     FontSize: {
       Title: "Yazı Boyutu",
       SubTitle: "Sohbet içeriğinin yazı boyutunu ayarlayın",

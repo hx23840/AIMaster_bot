@@ -61,6 +61,7 @@ const no: PartialLocaleType = {
       Name: "Language", // ATTENTION: if you wanna add a new translation, please do not translate this value, leave it as `Language`
     },
     Avatar: "Avatar",
+    User: "Bruker",
     FontSize: {
       Title: "Fontstørrelsen",
       SubTitle: "Juster fontstørrelsen for samtaleinnholdet.",

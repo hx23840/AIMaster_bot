@@ -106,6 +106,7 @@ const ar: PartialLocaleType = {
       All: "كل اللغات",
     },
     Avatar: "الصورة الرمزية",
+    User: "المستخدم",
     FontSize: {
       Title: "حجم الخط",
       SubTitle: "ضبط حجم الخط لمحتوى الدردشة",

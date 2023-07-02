@@ -67,6 +67,7 @@ const ru: PartialLocaleType = {
       All: "Все языки",
     },
     Avatar: "Аватар",
+    User: "Пользователь",
     FontSize: {
       Title: "Размер шрифта",
       SubTitle: "Настроить размер шрифта контента чата",

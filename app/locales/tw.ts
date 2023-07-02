@@ -65,6 +65,7 @@ const tw: PartialLocaleType = {
       All: "所有语言",
     },
     Avatar: "大頭貼",
+    User: "用戶",
     FontSize: {
       Title: "字型大小",
       SubTitle: "聊天內容的字型大小",

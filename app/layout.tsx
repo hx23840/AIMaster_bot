@@ -4,6 +4,7 @@ import "./styles/markdown.scss";
 import "./styles/highlight.scss";
 import {getClientConfig} from "./config/client";
 import {Analytics} from '@vercel/analytics/react';
+import { ClerkProvider } from '@clerk/nextjs'
 
 export const metadata = {
     title: "AIMaster",
@@ -29,16 +30,18 @@ export default function RootLayout({
     children: React.ReactNode;
 }) {
     return (
-        <html lang="en">
-        <head>
-            <meta name="config" content={JSON.stringify(getClientConfig())}/>
-            <link rel="manifest" href="/site.webmanifest"></link>
-            <script src="/serviceWorkerRegister.js" defer></script>
-        </head>
-        <body>
-          {children}
-          <Analytics/>
-        </body>
-        </html>
+        <ClerkProvider>
+            <html lang="en">
+            <head>
+                <meta name="config" content={JSON.stringify(getClientConfig())}/>
+                <link rel="manifest" href="/site.webmanifest"></link>
+                <script src="/serviceWorkerRegister.js" defer></script>
+            </head>
+            <body>
+              {children}
+              <Analytics/>
+            </body>
+            </html>
+        </ClerkProvider>
     );
 }

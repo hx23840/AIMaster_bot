@@ -67,6 +67,7 @@ const vi: PartialLocaleType = {
       All: "Tất cả ngôn ngữ",
     },
     Avatar: "Ảnh đại diện",
+    User: "Người dùng",
     FontSize: {
       Title: "Font chữ",
       SubTitle: "Thay đổi font chữ của nội dung trò chuyện",

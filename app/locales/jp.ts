@@ -80,6 +80,7 @@ const jp: PartialLocaleType = {
       All: "全ての言語",
     },
     Avatar: "アバター",
+    User: "ユーザー名",
     FontSize: {
       Title: "フォントサイズ",
       SubTitle: "チャット内容のフォントサイズ",

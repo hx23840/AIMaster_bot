@@ -131,6 +131,7 @@ const en: LocaleType = {
       All: "All Languages",
     },
     Avatar: "Avatar",
+    User: "User",
     FontSize: {
       Title: "Font Size",
       SubTitle: "Adjust font size of chat content",
