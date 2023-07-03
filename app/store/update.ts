@@ -55,75 +55,75 @@ async function getVersion(type: "date" | "tag") {
   }
 }
 
-export const useUpdateStore = create<UpdateStore>()(
-  persist(
-    (set, get) => ({
-      versionType: "tag",
-      lastUpdate: 0,
-      version: "unknown",
-      remoteVersion: "",
-
-      lastUpdateUsage: 0,
-
-      formatVersion(version: string) {
-        if (get().versionType === "date") {
-          version = formatVersionDate(version);
-        }
-        return version;
-      },
-
-      async getLatestVersion(force = false) {
-        const versionType = get().versionType;
-        let version =
-          versionType === "date"
-            ? getClientConfig()?.commitDate
-            : getClientConfig()?.version;
-
-        set(() => ({ version }));
-
-        const shouldCheck = Date.now() - get().lastUpdate > 2 * 60 * ONE_MINUTE;
-        if (!force && !shouldCheck) return;
-
-        set(() => ({
-          lastUpdate: Date.now(),
-        }));
-
-        try {
-          const remoteId = await getVersion(versionType);
-          set(() => ({
-            remoteVersion: remoteId,
-          }));
-          console.log("[Got Upstream] ", remoteId);
-        } catch (error) {
-          console.error("[Fetch Upstream Commit Id]", error);
-        }
-      },
-
-      async updateUsage(force = false) {
-        const overOneMinute = Date.now() - get().lastUpdateUsage >= ONE_MINUTE;
-        if (!overOneMinute && !force) return;
-
-        set(() => ({
-          lastUpdateUsage: Date.now(),
-        }));
-
-        try {
-          const usage = await api.llm.usage();
-
-          if (usage) {
-            set(() => ({
-              used: usage.used,
-              subscription: usage.total,
-            }));
-          }
-        } catch (e) {
-          console.error((e as Error).message);
-        }
-      },
-    }),
-    {
-      name: StoreKey.Update,
-      version: 1,
-    },
-  ),
-);
+// export const useUpdateStore = create<UpdateStore>()(
+//   persist(
+//     (set, get) => ({
+//       versionType: "tag",
+//       lastUpdate: 0,
+//       version: "unknown",
+//       remoteVersion: "",
+//
+//       lastUpdateUsage: 0,
+//
+//       formatVersion(version: string) {
+//         if (get().versionType === "date") {
+//           version = formatVersionDate(version);
+//         }
+//         return version;
+//       },
+//
+//       async getLatestVersion(force = false) {
+//         const versionType = get().versionType;
+//         let version =
+//           versionType === "date"
+//             ? getClientConfig()?.commitDate
+//             : getClientConfig()?.version;
+//
+//         set(() => ({ version }));
+//
+//         const shouldCheck = Date.now() - get().lastUpdate > 2 * 60 * ONE_MINUTE;
+//         if (!force && !shouldCheck) return;
+//
+//         set(() => ({
+//           lastUpdate: Date.now(),
+//         }));
+//
+//         try {
+//           const remoteId = await getVersion(versionType);
+//           set(() => ({
+//             remoteVersion: remoteId,
+//           }));
+//           console.log("[Got Upstream] ", remoteId);
+//         } catch (error) {
+//           console.error("[Fetch Upstream Commit Id]", error);
+//         }
+//       },
+//
+//       async updateUsage(force = false) {
+//         const overOneMinute = Date.now() - get().lastUpdateUsage >= ONE_MINUTE;
+//         if (!overOneMinute && !force) return;
+//
+//         set(() => ({
+//           lastUpdateUsage: Date.now(),
+//         }));
+//
+//         try {
+//           const usage = await api.llm.usage();
+//
+//           if (usage) {
+//             set(() => ({
+//               used: usage.used,
+//               subscription: usage.total,
+//             }));
+//           }
+//         } catch (e) {
+//           console.error((e as Error).message);
+//         }
+//       },
+//     }),
+//     {
+//       name: StoreKey.Update,
+//       version: 1,
+//     },
+//   ),
+//);

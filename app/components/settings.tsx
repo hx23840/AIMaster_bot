@@ -27,7 +27,7 @@ import {
   SubmitKey,
   useChatStore,
   Theme,
-  useUpdateStore,
+  // useUpdateStore,
   useAccessStore,
   useAppConfig,
 } from "../store";
@@ -317,34 +317,34 @@ export function Settings() {
   const updateConfig = config.update;
   const chatStore = useChatStore();
 
-  const updateStore = useUpdateStore();
-  const [checkingUpdate, setCheckingUpdate] = useState(false);
-  const currentVersion = updateStore.formatVersion(updateStore.version);
-  const remoteId = updateStore.formatVersion(updateStore.remoteVersion);
-  const hasNewVersion = currentVersion !== remoteId;
-  const updateUrl = getClientConfig()?.isApp ? RELEASE_URL : UPDATE_URL;
-
-  function checkUpdate(force = false) {
-    setCheckingUpdate(true);
-    updateStore.getLatestVersion(force).then(() => {
-      setCheckingUpdate(false);
-    });
-
-    console.log("[Update] local version ", updateStore.version);
-    console.log("[Update] remote version ", updateStore.remoteVersion);
-  }
-
-  const usage = {
-    used: updateStore.used,
-    subscription: updateStore.subscription,
-  };
-  const [loadingUsage, setLoadingUsage] = useState(false);
-  function checkUsage(force = false) {
-    setLoadingUsage(true);
-    updateStore.updateUsage(force).finally(() => {
-      setLoadingUsage(false);
-    });
-  }
+  // const updateStore = useUpdateStore();
+  // const [checkingUpdate, setCheckingUpdate] = useState(false);
+  // const currentVersion = updateStore.formatVersion(updateStore.version);
+  // const remoteId = updateStore.formatVersion(updateStore.remoteVersion);
+  // const hasNewVersion = currentVersion !== remoteId;
+  // const updateUrl = getClientConfig()?.isApp ? RELEASE_URL : UPDATE_URL;
+  //
+  // function checkUpdate(force = false) {
+  //   setCheckingUpdate(true);
+  //   updateStore.getLatestVersion(force).then(() => {
+  //     setCheckingUpdate(false);
+  //   });
+  //
+  //   console.log("[Update] local version ", updateStore.version);
+  //   console.log("[Update] remote version ", updateStore.remoteVersion);
+  // }
+  //
+  // const usage = {
+  //   used: updateStore.used,
+  //   subscription: updateStore.subscription,
+  // };
+  // const [loadingUsage, setLoadingUsage] = useState(false);
+  // function checkUsage(force = false) {
+  //   setLoadingUsage(true);
+  //   updateStore.updateUsage(force).finally(() => {
+  //     setLoadingUsage(false);
+  //   });
+  // }
 
   const accessStore = useAccessStore();
   const enabledAccessControl = useMemo(
@@ -361,8 +361,8 @@ export function Settings() {
   const showUsage = accessStore.isAuthorized();
   useEffect(() => {
     // checks per minutes
-    checkUpdate();
-    showUsage && checkUsage();
+    // checkUpdate();
+    // showUsage && checkUsage();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
