@@ -30,13 +30,6 @@ async function handle(
             },
         );
     }
-    //
-    // const authResult = auth(req);
-    // if (authResult.error) {
-    //     return NextResponse.json(authResult, {
-    //         status: 401,
-    //     });
-    // }
 
     const {user} = getInfo()
     if (!user) {
@@ -44,6 +37,13 @@ async function handle(
             JSON.stringify({error: 'Missing user information'}),
             {status: 400}  // HTTP status code for "Bad Request"
         );
+    }
+
+    const authResult = auth(req);
+    if (authResult.error) {
+        return NextResponse.json(authResult, {
+            status: 401,
+        });
     }
 
     const count = await incrementUserRequestCount("AIMaster-" + user);

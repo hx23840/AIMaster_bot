@@ -42,6 +42,8 @@ export async function requestOpenai(req: NextRequest) {
         "",
     );
 
+    console.log( "[OpenAI] ", authValue)
+
     let baseUrl = BASE_URL;
 
     if (!baseUrl.startsWith("http")) {
