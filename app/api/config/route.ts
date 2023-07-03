@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 
 import { getServerSideConfig } from "../../config/server";
+import {getInfo} from "@/app/api/common";
 
 const serverConfig = getServerSideConfig();
 
@@ -18,10 +19,18 @@ declare global {
 }
 
 async function handle() {
+  const {user} = getInfo()
+  if (!user) {
+    return new Response(
+        JSON.stringify({error: 'Missing user information'}),
+        {status: 400}  // HTTP status code for "Bad Request"
+    );
+  }
+
   return NextResponse.json(DANGER_CONFIG);
 }
 
 export const GET = handle;
 export const POST = handle;
 
-export const runtime = "edge";
+// export const runtime = "edge";
