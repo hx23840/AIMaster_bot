@@ -49,7 +49,7 @@ async function handle(
     const count = await incrementUserRequestCount("AIMaster-" + user);
     if (count > 10) {
         return new Response(
-            'Free use is limited to ten times per day. Please try again tomorrow.Please contact support@lyrai.app for more quota.',
+            'Free use is limited to ten times per day. Please try again tomorrow, Or contact support@lyrai.app for more quota.',
             {status: 429}
         );
     }
